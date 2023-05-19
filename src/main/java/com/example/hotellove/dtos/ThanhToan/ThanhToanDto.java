@@ -1,12 +1,10 @@
-package com.example.hotellove.entities;
+package com.example.hotellove.dtos.ThanhToan;
 
 import com.example.hotellove.entities.embedded.ThongTinThanhToan;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.List;
@@ -15,10 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "thanh-toan")
-public class ThanhToan {
-    @Id
-    private String id;
+public class ThanhToanDto {
 
     private String tenNguoiThanhToan;
 
@@ -29,5 +24,4 @@ public class ThanhToan {
     private Double tienThue;
 
     private List<ThongTinThanhToan> thongTinThanhToans;
-
 }

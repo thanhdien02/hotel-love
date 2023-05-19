@@ -1,6 +1,7 @@
 package com.example.hotellove.entities;
 
 import com.example.hotellove.entities.embedded.ThongTinDatPhong;
+import com.example.hotellove.entities.embedded.ThongTinNhanPhong;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,8 +25,10 @@ public class NhanPhong {
 
     private String tenNguoiNhan;
 
+    private String soDienThoai;
+
     private Date ngayNhan;
 
-    private List<ThongTinDatPhong> thongTinDatPhongs = new ArrayList<>();
+    private List<ThongTinNhanPhong> thongTinNhanPhongs = new ArrayList<>();
 
 }
