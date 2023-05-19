@@ -18,6 +18,6 @@ public class PhongDto {
 
     private double giaPhong;
 
-
+    //
     private String loaiPhong;
 }
