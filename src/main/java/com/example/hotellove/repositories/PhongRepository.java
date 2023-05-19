@@ -9,4 +9,9 @@ public interface PhongRepository extends MongoRepository<Phong, String> {
 
     @Query(value = "{'tenPhong': ?0}", exists = true)
     boolean kiemTraTenPhong(String tenPhong);
+
+    @Query(value = "{'tenPhong': ?0, 'giaPhong':  ?0}", exists = true)
+    boolean kiemTraGiaPhong(String tenPhong, Double giaPhong);
+
+    Phong findBytenPhong(String tenPhong);
 }

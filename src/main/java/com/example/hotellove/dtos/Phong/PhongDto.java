@@ -20,4 +20,6 @@ public class PhongDto {
 
     //
     private String loaiPhong;
+
+    private Boolean trangThai = false;
 }

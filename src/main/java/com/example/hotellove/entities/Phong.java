@@ -27,4 +27,6 @@ public class Phong {
 
     private String loaiPhong;
 
+    private Boolean trangThai = false;
+
 }

@@ -1,13 +1,10 @@
-package com.example.hotellove.entities;
-
+package com.example.hotellove.dtos.DatPhong;
 
 import com.example.hotellove.entities.embedded.ThongTinDatPhong;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,11 +14,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "dat-phong")
-public class DatPhong {
-
-    @Id
-    private String id;
+public class DatPhongDto {
 
     private String tenNguoiDat;
 
@@ -32,5 +25,4 @@ public class DatPhong {
     private List<ThongTinDatPhong> thongTinDatPhongs = new ArrayList<>();
 
     private boolean tinhTrang = true;
-
 }

@@ -27,7 +27,7 @@ public class LoaiPhongServiceImp implements LoaiPhongService{
         }
 
         if (loaiPhongRepository.kiemTraTenLoaiPhong(dto.getTenLoaiPhong().trim())) {
-            throw new InvalidException(String.format("Email %s đã tồn tại",
+            throw new InvalidException(String.format("Tên loại phòng %s đã tồn tại",
                     dto.getTenLoaiPhong()));
         }
         LoaiPhong loaiPhong = new LoaiPhong();

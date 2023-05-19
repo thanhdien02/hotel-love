@@ -1,4 +1,7 @@
 package com.example.hotellove.repositories;
 
-public interface NhanPhongRepository {
+import com.example.hotellove.entities.NhanPhong;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface NhanPhongRepository extends MongoRepository<NhanPhong, String> {
 }

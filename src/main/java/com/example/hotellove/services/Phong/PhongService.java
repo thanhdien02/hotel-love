@@ -11,4 +11,6 @@ public interface PhongService {
     Phong update(String id, PhongDto dto);
 
     Phong delete (String id);
+
+    boolean kiemTraTenPhongGiaTienVaLoaiPhong(String tenPhong, Double giaPhong, String loaiPhong);
 }

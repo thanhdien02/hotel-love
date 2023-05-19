@@ -1,4 +1,8 @@
 package com.example.hotellove.repositories;
 
-public interface DatPhongRepository {
+import com.example.hotellove.entities.DatPhong;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface DatPhongRepository extends MongoRepository<DatPhong, String> {
+
 }
