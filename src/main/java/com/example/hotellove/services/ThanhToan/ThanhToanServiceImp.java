@@ -4,6 +4,7 @@ package com.example.hotellove.services.ThanhToan;
 import com.example.hotellove.dtos.Phong.PhongDto;
 import com.example.hotellove.dtos.ThanhToan.ThanhToanDto;
 import com.example.hotellove.entities.Phong;
+import com.example.hotellove.entities.TaiKhoan;
 import com.example.hotellove.entities.ThanhToan;
 import com.example.hotellove.exceptions.InvalidException;
 import com.example.hotellove.exceptions.NotFoundException;
@@ -13,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -28,6 +31,11 @@ public class ThanhToanServiceImp implements ThanhToanService{
                 .orElseThrow(() -> new NotFoundException(String
                         .format("Thanh toán có id %s không tồn tại", id)));
 
+    }
+
+    @Override
+    public List<ThanhToan> getAll() {
+        return thanhToanRepository.findAll();
     }
 
     @Override

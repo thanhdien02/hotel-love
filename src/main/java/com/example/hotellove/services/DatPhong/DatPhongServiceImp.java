@@ -2,6 +2,7 @@ package com.example.hotellove.services.DatPhong;
 
 import com.example.hotellove.dtos.DatPhong.DatPhongDto;
 import com.example.hotellove.entities.DatPhong;
+import com.example.hotellove.entities.TaiKhoan;
 import com.example.hotellove.exceptions.InvalidException;
 import com.example.hotellove.exceptions.NotFoundException;
 import com.example.hotellove.repositories.DatPhongRepository;
@@ -11,6 +12,8 @@ import com.example.hotellove.services.Phong.PhongService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -38,6 +41,11 @@ public class DatPhongServiceImp implements DatPhongService{
         return datPhongRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(String
                         .format("Đặt Phòng có id %s không tồn tại", id)));
+    }
+
+    @Override
+    public List<DatPhong> getAll() {
+        return datPhongRepository.findAll();
     }
     @Override
     public DatPhong create(DatPhongDto dto)

@@ -3,6 +3,7 @@ package com.example.hotellove.services.LoaiPhong;
 
 import com.example.hotellove.dtos.LoaiPhong.LoaiPhongDto;
 import com.example.hotellove.entities.LoaiPhong;
+import com.example.hotellove.entities.TaiKhoan;
 import com.example.hotellove.exceptions.InvalidException;
 import com.example.hotellove.exceptions.NotFoundException;
 import com.example.hotellove.repositories.LoaiPhongRepository;
@@ -10,6 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+
+import java.util.List;
+
 @Slf4j
 @Service
 public class LoaiPhongServiceImp implements LoaiPhongService{
@@ -42,6 +46,11 @@ public class LoaiPhongServiceImp implements LoaiPhongService{
         return loaiPhongRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(String
                         .format("Loại Phòng có id %s không tồn tại", id)));
+    }
+
+    @Override
+    public List<LoaiPhong> getAll() {
+        return loaiPhongRepository.findAll();
     }
 
     @Override

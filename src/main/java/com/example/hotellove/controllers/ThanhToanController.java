@@ -2,6 +2,7 @@ package com.example.hotellove.controllers;
 
 
 import com.example.hotellove.dtos.ThanhToan.ThanhToanDto;
+import com.example.hotellove.entities.TaiKhoan;
 import com.example.hotellove.entities.ThanhToan;
 import com.example.hotellove.services.ThanhToan.ThanhToanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rest/thanh-toan")
@@ -28,6 +30,10 @@ public class ThanhToanController {
         return new ResponseEntity<>(thanhToanService.getThanhToan(id), HttpStatus.OK);
     }
 
+    @GetMapping
+    public ResponseEntity<List<ThanhToan>> getAll() {
+        return new ResponseEntity<>(thanhToanService.getAll(), HttpStatus.OK);
+    }
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<ThanhToan> create(@Valid @RequestBody ThanhToanDto dto) {

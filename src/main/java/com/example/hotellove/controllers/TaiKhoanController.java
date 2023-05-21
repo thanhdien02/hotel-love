@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rest/tai-khoan")
@@ -28,6 +29,10 @@ public class TaiKhoanController {
         return new ResponseEntity<>(taiKhoanService.getTaiKhoan(id), HttpStatus.OK);
     }
 
+    @GetMapping
+    public ResponseEntity<List<TaiKhoan>> getAll() {
+        return new ResponseEntity<>(taiKhoanService.getAll(), HttpStatus.OK);
+    }
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<TaiKhoan> create(@Valid @RequestBody TaiKhoanDto dto, Principal principal) {

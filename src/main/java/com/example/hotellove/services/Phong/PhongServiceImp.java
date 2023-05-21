@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import java.util.List;
+
 @Service
 
 public class PhongServiceImp implements PhongService {
@@ -67,6 +69,10 @@ public class PhongServiceImp implements PhongService {
 
     }
 
+    @Override
+    public List<Phong> getAll() {
+        return phongRepository.findAll();
+    }
     @Override
     public boolean kiemTraTenPhongGiaTienVaLoaiPhong(String tenPhong, Double giaPhong, String loaiPhong)
     {

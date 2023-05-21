@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rest/phong")
@@ -29,6 +30,11 @@ public class PhongController {
     @GetMapping("/{id}")
     public ResponseEntity<Phong> getPhong(@PathVariable String id) {
         return new ResponseEntity<>(phongService.getPhong(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Phong>> getAll() {
+        return new ResponseEntity<>(phongService.getAll(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")

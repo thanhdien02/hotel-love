@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import java.security.Principal;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -26,6 +27,12 @@ public class TaiKhoanServiceImpl implements TaiKhoanService{
                 .orElseThrow(() -> new NotFoundException(String
                         .format("Tài khoản có id %s không tồn tại", id)));
     }
+
+    @Override
+    public List<TaiKhoan> getAll() {
+        return taiKhoanRepository.findAll();
+    }
+
 
     @Override
     public TaiKhoan create(TaiKhoanDto dto, Principal principal) {

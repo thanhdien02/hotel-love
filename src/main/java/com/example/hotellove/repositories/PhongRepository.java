@@ -4,6 +4,8 @@ import com.example.hotellove.entities.Phong;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
+import java.util.List;
+
 public interface PhongRepository extends MongoRepository<Phong, String> {
 
 
@@ -12,4 +14,5 @@ public interface PhongRepository extends MongoRepository<Phong, String> {
 
 
     Phong findBytenPhong(String tenPhong);
+
 }

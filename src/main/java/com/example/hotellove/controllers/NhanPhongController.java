@@ -2,8 +2,8 @@ package com.example.hotellove.controllers;
 
 import com.example.hotellove.dtos.DatPhong.DatPhongDto;
 import com.example.hotellove.dtos.NhanPhong.NhanPhongDto;
-import com.example.hotellove.entities.DatPhong;
 import com.example.hotellove.entities.NhanPhong;
+import com.example.hotellove.entities.TaiKhoan;
 import com.example.hotellove.services.NhanPhong.NhanPhongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rest/nhan-phong")
@@ -29,6 +30,10 @@ public class NhanPhongController {
         return new ResponseEntity<>(nhanPhongService.getNhanPhong(id), HttpStatus.OK);
     }
 
+    @GetMapping
+    public ResponseEntity<List<NhanPhong>> getAll() {
+        return new ResponseEntity<>(nhanPhongService.getAll(), HttpStatus.OK);
+    }
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<NhanPhong> create(@Valid @RequestBody NhanPhongDto dto) {

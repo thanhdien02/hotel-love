@@ -2,6 +2,7 @@ package com.example.hotellove.controllers;
 
 import com.example.hotellove.dtos.DatPhong.DatPhongDto;
 import com.example.hotellove.entities.DatPhong;
+import com.example.hotellove.entities.TaiKhoan;
 import com.example.hotellove.services.DatPhong.DatPhongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rest/dat-phong")
@@ -27,6 +29,10 @@ public class DatPhongController {
         return new ResponseEntity<>(datPhongService.getDatPhong(id), HttpStatus.OK);
     }
 
+    @GetMapping
+    public ResponseEntity<List<DatPhong>> getAll() {
+        return new ResponseEntity<>(datPhongService.getAll(), HttpStatus.OK);
+    }
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<DatPhong> create(@Valid @RequestBody DatPhongDto dto) {

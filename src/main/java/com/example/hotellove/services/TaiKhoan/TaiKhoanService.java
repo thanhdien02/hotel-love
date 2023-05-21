@@ -5,6 +5,7 @@ import com.example.hotellove.entities.TaiKhoan;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.List;
 
 public interface TaiKhoanService {
     TaiKhoan getTaiKhoan(String id);
@@ -13,4 +14,5 @@ public interface TaiKhoanService {
     TaiKhoan update (String id, TaiKhoanDto dto);
 
     TaiKhoan delete (String id);
+    List<TaiKhoan> getAll();
 }

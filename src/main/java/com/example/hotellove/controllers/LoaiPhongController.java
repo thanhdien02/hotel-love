@@ -2,6 +2,7 @@ package com.example.hotellove.controllers;
 
 import com.example.hotellove.dtos.LoaiPhong.LoaiPhongDto;
 import com.example.hotellove.entities.LoaiPhong;
+import com.example.hotellove.entities.TaiKhoan;
 import com.example.hotellove.services.LoaiPhong.LoaiPhongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rest/loai-phong")
@@ -25,6 +27,11 @@ public class LoaiPhongController {
     @GetMapping("/{id}")
     public ResponseEntity<LoaiPhong> getTaiKhoan(@PathVariable String id) {
         return new ResponseEntity<>(loaiPhongService.getLoaiPhong(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<LoaiPhong>> getAll() {
+        return new ResponseEntity<>(loaiPhongService.getAll(), HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
